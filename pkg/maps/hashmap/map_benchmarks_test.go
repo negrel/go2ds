@@ -67,50 +67,50 @@ func benchmarkDelete(b *testing.B, size int) {
 	}
 }
 
-func BenchmarkHashMap_Put_100(b *testing.B) {
+func BenchmarkMap_Put_100(b *testing.B) {
 	benchmarkPut(b, 100)
 }
 
-func BenchmarkHashMap_Put_1000(b *testing.B) {
+func BenchmarkMap_Put_1000(b *testing.B) {
 	benchmarkPut(b, 1000)
 }
 
-func BenchmarkHashMap_Put_10000(b *testing.B) {
+func BenchmarkMap_Put_10000(b *testing.B) {
 	benchmarkPut(b, 10000)
 }
 
-func BenchmarkHashMap_Put_100000(b *testing.B) {
+func BenchmarkMap_Put_100000(b *testing.B) {
 	benchmarkPut(b, 100000)
 }
 
-func BenchmarkHashMap_Get_100(b *testing.B) {
+func BenchmarkMap_Get_100(b *testing.B) {
 	benchmarkGet(b, 100)
 }
 
-func BenchmarkHashMap_Get_1000(b *testing.B) {
+func BenchmarkMap_Get_1000(b *testing.B) {
 	benchmarkGet(b, 1000)
 }
 
-func BenchmarkHashMap_Get_10000(b *testing.B) {
+func BenchmarkMap_Get_10000(b *testing.B) {
 	benchmarkGet(b, 10000)
 }
 
-func BenchmarkHashMap_Get_100000(b *testing.B) {
+func BenchmarkMap_Get_100000(b *testing.B) {
 	benchmarkGet(b, 100000)
 }
 
-func BenchmarkHashMap_Delete_100(b *testing.B) {
+func BenchmarkMap_Delete_100(b *testing.B) {
 	benchmarkDelete(b, 100)
 }
 
-func BenchmarkHashMap_Delete_1000(b *testing.B) {
+func BenchmarkMap_Delete_1000(b *testing.B) {
 	benchmarkDelete(b, 1000)
 }
 
-func BenchmarkHashMap_Delete_10000(b *testing.B) {
+func BenchmarkMap_Delete_10000(b *testing.B) {
 	benchmarkDelete(b, 10000)
 }
 
-func BenchmarkHashMap_Delete_100000(b *testing.B) {
+func BenchmarkMap_Delete_100000(b *testing.B) {
 	benchmarkDelete(b, 100000)
 }

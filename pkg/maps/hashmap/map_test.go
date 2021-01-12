@@ -15,7 +15,7 @@ func TestMap_Put(t *testing.T) {
 
 	actual, ok := m.m[maps.Key(&key)]
 	assert.True(t, ok)
-	assert.Equal(t, *(*int)(actual), value)
+	assert.Equal(t, value, *(*int)(actual))
 }
 
 func TestMap_Get(t *testing.T) {
@@ -27,7 +27,7 @@ func TestMap_Get(t *testing.T) {
 
 	actual, ok := m.Get(maps.Key(&key))
 	assert.True(t, ok)
-	assert.Equal(t, *(*int)(actual), value)
+	assert.Equal(t, value, *(*int)(actual))
 }
 
 func TestMap_Delete(t *testing.T) {
@@ -60,7 +60,7 @@ func TestMap_Keys(t *testing.T) {
 	}
 
 	actualKeys := m.Keys()
-	assert.Equal(t, len(actualKeys), keyCount)
+	assert.Equal(t, keyCount, len(actualKeys))
 
 	keySet := make(map[maps.Key]struct{}, keyCount)
 	// Fill the keySet and check that there is no duplicate keys
@@ -76,4 +76,33 @@ func TestMap_Keys(t *testing.T) {
 		_, ok := keySet[key]
 		assert.True(t, ok)
 	}
+}
+
+func TestMap_Size(t *testing.T) {
+	m := New()
+
+	m.Put(nil, nil)
+	assert.Equal(t, 1, m.Size())
+
+	i := 0
+	j := 0
+	m.Put(maps.Key(&i), maps.Key(&j))
+	assert.Equal(t, 2, m.Size())
+
+	m.Put(maps.Key(&i), maps.Key(&j))
+	assert.Equal(t, 2, m.Size())
+
+	m.Delete(maps.Key(&i))
+	assert.Equal(t, 1, m.Size())
+}
+
+func TestMap_Clear(t *testing.T) {
+	m := newMap()
+
+	m.Put(nil, nil)
+	assert.Equal(t, 1, m.Size())
+
+	m.Clear()
+	m.m = make(map[maps.Key]maps.Value)
+	assert.Equal(t, 0, m.Size())
 }
