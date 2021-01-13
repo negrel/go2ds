@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func benchmarkCMap_Put(b *testing.B, size int) {
+func benchmarkCMapPut(b *testing.B, size int) {
 	m := NewC()
 	keys := make([]int, size)
 	for j := 0; j < size; j++ {
@@ -36,7 +36,7 @@ func benchmarkCMap_Put(b *testing.B, size int) {
 	}
 }
 
-func benchmarkCMap_Get(b *testing.B, size int) {
+func benchmarkCMapGet(b *testing.B, size int) {
 	m := NewC()
 	keys := make([]maps.Key, size)
 
@@ -66,7 +66,7 @@ func benchmarkCMap_Get(b *testing.B, size int) {
 	wg.Wait()
 }
 
-func benchmarkCMap_Delete(b *testing.B, size int) {
+func benchmarkCMapDelete(b *testing.B, size int) {
 	m := NewC()
 	keys := make([]maps.Key, size)
 
@@ -98,49 +98,49 @@ func benchmarkCMap_Delete(b *testing.B, size int) {
 }
 
 func BenchmarkCMap_Put_100(b *testing.B) {
-	benchmarkCMap_Put(b, 100)
+	benchmarkCMapPut(b, 100)
 }
 
 func BenchmarkCMap_Put_1000(b *testing.B) {
-	benchmarkCMap_Put(b, 1000)
+	benchmarkCMapPut(b, 1000)
 }
 
 func BenchmarkCMap_Put_10000(b *testing.B) {
-	benchmarkCMap_Put(b, 10000)
+	benchmarkCMapPut(b, 10000)
 }
 
 func BenchmarkCMap_Put_100000(b *testing.B) {
-	benchmarkCMap_Put(b, 100000)
+	benchmarkCMapPut(b, 100000)
 }
 
 func BenchmarkCMap_Get_100(b *testing.B) {
-	benchmarkCMap_Get(b, 100)
+	benchmarkCMapGet(b, 100)
 }
 
 func BenchmarkCMap_Get_1000(b *testing.B) {
-	benchmarkCMap_Get(b, 1000)
+	benchmarkCMapGet(b, 1000)
 }
 
 func BenchmarkCMap_Get_10000(b *testing.B) {
-	benchmarkCMap_Get(b, 10000)
+	benchmarkCMapGet(b, 10000)
 }
 
 func BenchmarkCMap_Get_100000(b *testing.B) {
-	benchmarkCMap_Get(b, 100000)
+	benchmarkCMapGet(b, 100000)
 }
 
 func BenchmarkCMap_Delete_100(b *testing.B) {
-	benchmarkCMap_Delete(b, 100)
+	benchmarkCMapDelete(b, 100)
 }
 
 func BenchmarkCMap_Delete_1000(b *testing.B) {
-	benchmarkCMap_Delete(b, 1000)
+	benchmarkCMapDelete(b, 1000)
 }
 
 func BenchmarkCMap_Delete_10000(b *testing.B) {
-	benchmarkCMap_Delete(b, 10000)
+	benchmarkCMapDelete(b, 10000)
 }
 
 func BenchmarkCMap_Delete_100000(b *testing.B) {
-	benchmarkCMap_Delete(b, 100000)
+	benchmarkCMapDelete(b, 100000)
 }

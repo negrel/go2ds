@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func benchmarkBuiltInPut(b *testing.B, size int) {
+func benchmarkBuiltInSet(b *testing.B, size int) {
 	m := make(map[int]struct{})
 
 	b.ResetTimer()
@@ -53,20 +53,20 @@ func benchmarkBuiltInDelete(b *testing.B, size int) {
 	}
 }
 
-func BenchmarkBuiltInMap_Put_100(b *testing.B) {
-	benchmarkBuiltInPut(b, 100)
+func BenchmarkBuiltInMap_Set_100(b *testing.B) {
+	benchmarkBuiltInSet(b, 100)
 }
 
-func BenchmarkBuiltInMap_Put_1000(b *testing.B) {
-	benchmarkBuiltInPut(b, 1000)
+func BenchmarkBuiltInMap_Set_1000(b *testing.B) {
+	benchmarkBuiltInSet(b, 1000)
 }
 
-func BenchmarkBuiltInMap_Put_10000(b *testing.B) {
-	benchmarkBuiltInPut(b, 10000)
+func BenchmarkBuiltInMap_Set_10000(b *testing.B) {
+	benchmarkBuiltInSet(b, 10000)
 }
 
-func BenchmarkBuiltInMap_Put_100000(b *testing.B) {
-	benchmarkBuiltInPut(b, 100000)
+func BenchmarkBuiltInMap_Set_100000(b *testing.B) {
+	benchmarkBuiltInSet(b, 100000)
 }
 
 func BenchmarkBuiltInMap_Get_100(b *testing.B) {

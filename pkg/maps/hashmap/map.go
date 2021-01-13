@@ -23,7 +23,7 @@ func newMap() *Map {
 	}
 }
 
-// Put insert the given value in the map.
+// Set insert the given value in the map.
 func (m *Map) Set(key maps.Key, value maps.Value) {
 	m.m[key] = value
 }

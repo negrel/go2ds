@@ -24,7 +24,7 @@ func newCMap() *CMap {
 	}
 }
 
-// Put insert the given value in the map.
+// Set insert the given value in the map.
 func (cm *CMap) Set(key maps.Key, value maps.Value) {
 	cm.Lock()
 	defer cm.Unlock()

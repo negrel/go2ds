@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func benchmarkMap_Put(b *testing.B, size int) {
+func benchmarkMapSet(b *testing.B, size int) {
 	m := New()
 	keys := make([]int, size)
 	for j := 0; j < size; j++ {
@@ -26,7 +26,7 @@ func benchmarkMap_Put(b *testing.B, size int) {
 	}
 }
 
-func benchmarkMap_Get(b *testing.B, size int) {
+func benchmarkMapGet(b *testing.B, size int) {
 	m := New()
 	keys := make([]maps.Key, size)
 
@@ -48,7 +48,7 @@ func benchmarkMap_Get(b *testing.B, size int) {
 	}
 }
 
-func benchmarkMap_Delete(b *testing.B, size int) {
+func benchmarkMapDelete(b *testing.B, size int) {
 	m := New()
 	keys := make([]maps.Key, size)
 
@@ -73,50 +73,50 @@ func benchmarkMap_Delete(b *testing.B, size int) {
 	}
 }
 
-func BenchmarkMap_Put_100(b *testing.B) {
-	benchmarkMap_Put(b, 100)
+func BenchmarkMap_Set_100(b *testing.B) {
+	benchmarkMapSet(b, 100)
 }
 
-func BenchmarkMap_Put_1000(b *testing.B) {
-	benchmarkMap_Put(b, 1000)
+func BenchmarkMap_Set_1000(b *testing.B) {
+	benchmarkMapSet(b, 1000)
 }
 
-func BenchmarkMap_Put_10000(b *testing.B) {
-	benchmarkMap_Put(b, 10000)
+func BenchmarkMap_Set_10000(b *testing.B) {
+	benchmarkMapSet(b, 10000)
 }
 
-func BenchmarkMap_Put_100000(b *testing.B) {
-	benchmarkMap_Put(b, 100000)
+func BenchmarkMap_Set_100000(b *testing.B) {
+	benchmarkMapSet(b, 100000)
 }
 
 func BenchmarkMap_Get_100(b *testing.B) {
-	benchmarkMap_Get(b, 100)
+	benchmarkMapGet(b, 100)
 }
 
 func BenchmarkMap_Get_1000(b *testing.B) {
-	benchmarkMap_Get(b, 1000)
+	benchmarkMapGet(b, 1000)
 }
 
 func BenchmarkMap_Get_10000(b *testing.B) {
-	benchmarkMap_Get(b, 10000)
+	benchmarkMapGet(b, 10000)
 }
 
 func BenchmarkMap_Get_100000(b *testing.B) {
-	benchmarkMap_Get(b, 100000)
+	benchmarkMapGet(b, 100000)
 }
 
 func BenchmarkMap_Delete_100(b *testing.B) {
-	benchmarkMap_Delete(b, 100)
+	benchmarkMapDelete(b, 100)
 }
 
 func BenchmarkMap_Delete_1000(b *testing.B) {
-	benchmarkMap_Delete(b, 1000)
+	benchmarkMapDelete(b, 1000)
 }
 
 func BenchmarkMap_Delete_10000(b *testing.B) {
-	benchmarkMap_Delete(b, 10000)
+	benchmarkMapDelete(b, 10000)
 }
 
 func BenchmarkMap_Delete_100000(b *testing.B) {
-	benchmarkMap_Delete(b, 100000)
+	benchmarkMapDelete(b, 100000)
 }
