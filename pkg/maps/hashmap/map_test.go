@@ -16,6 +16,10 @@ func TestMap_Put(t *testing.T) {
 	actual, ok := m.m[maps.Key(&key)]
 	assert.True(t, ok)
 	assert.Equal(t, value, *(*int)(actual))
+	assert.Equal(t, 1, len(m.m))
+
+	m.Put(maps.Key(&key), maps.Value(&value))
+	assert.Equal(t, 1, len(m.m))
 }
 
 func TestMap_Get(t *testing.T) {
@@ -28,6 +32,10 @@ func TestMap_Get(t *testing.T) {
 	actual, ok := m.Get(maps.Key(&key))
 	assert.True(t, ok)
 	assert.Equal(t, value, *(*int)(actual))
+
+	actual2, ok := m.Get(maps.Key(&key))
+	assert.True(t, ok)
+	assert.Equal(t, actual, actual2)
 }
 
 func TestMap_Delete(t *testing.T) {
@@ -41,8 +49,9 @@ func TestMap_Delete(t *testing.T) {
 	assert.True(t, ok)
 
 	m.Delete(maps.Key(&key))
-	_, ok = m.Get(maps.Key(&key))
+	actual, ok := m.Get(maps.Key(&key))
 	assert.False(t, ok)
+	assert.Equal(t, nil, actual)
 }
 
 func TestMap_Keys(t *testing.T) {
