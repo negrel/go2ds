@@ -1,6 +1,6 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/negrel/guds.svg)](https://pkg.go.dev/github.com/negrel/guds)
 [![Go Report](https://goreportcard.com/badge/github.com/negrel/guds)](https://goreportcard.com/report/github.com/negrel/guds)
-[![License Badge](https://img.shields.io/github/license/negrel/paon)](https://github.com/negrel/LICENSE/raw/master/LICENSE)
+[![License Badge](https://img.shields.io/github/license/negrel/guds)](https://github.com/negrel/guds/raw/master/LICENSE)
 
 # :zap: GUDS
 
