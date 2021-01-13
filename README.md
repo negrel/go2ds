@@ -1,4 +1,5 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/negrel/guds.svg)](https://pkg.go.dev/github.com/negrel/guds)
+[![Go Report](https://goreportcard.com/badge/github.com/negrel/guds)](https://goreportcard.com/report/github.com/negrel/guds)
 
 # :zap: GUDS
 
