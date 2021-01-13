@@ -55,9 +55,6 @@ func (m *Map) Size() int {
 
 func (m *Map) Clear() {
 	m.m = make(map[maps.Key]maps.Value)
-	//for _, value := range m.Keys() {
-	//	m.Delete(value)
-	//}
 }
 
 func (m *Map) Values() []elements.Element {

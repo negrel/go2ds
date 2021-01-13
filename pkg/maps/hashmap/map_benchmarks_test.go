@@ -7,12 +7,15 @@ import (
 
 func benchmarkPut(b *testing.B, size int) {
 	m := New()
+	keys := make([]int, size)
+	for j := 0; j < size; j++ {
+		keys[j] = j
+	}
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		for j := 0; j < size; j++ {
-			k := j
-			key := maps.Key(&k)
+			key := maps.Key(&keys[j])
 			value := maps.Value(&struct{}{})
 
 			m.Put(key, value)
