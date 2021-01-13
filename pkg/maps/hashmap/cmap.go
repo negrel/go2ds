@@ -25,10 +25,10 @@ func newCMap() *CMap {
 }
 
 // Put insert the given value in the map.
-func (cm *CMap) Put(key maps.Key, value maps.Value) {
+func (cm *CMap) Set(key maps.Key, value maps.Value) {
 	cm.Lock()
 	defer cm.Unlock()
-	cm.Map.Put(key, value)
+	cm.Map.Set(key, value)
 }
 
 // Get return the element mapped to the given key.

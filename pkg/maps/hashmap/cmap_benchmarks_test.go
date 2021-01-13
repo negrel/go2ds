@@ -25,7 +25,7 @@ func benchmarkCMap_Put(b *testing.B, size int) {
 				key := maps.Key(&keys[j])
 				value := maps.Value(&struct{}{})
 
-				m.Put(key, value)
+				m.Set(key, value)
 			}(j)
 		}
 		wg.Wait()
@@ -47,7 +47,7 @@ func benchmarkCMap_Get(b *testing.B, size int) {
 
 		keys[i] = key
 
-		m.Put(key, value)
+		m.Set(key, value)
 	}
 
 	var wg sync.WaitGroup
@@ -82,7 +82,7 @@ func benchmarkCMap_Delete(b *testing.B, size int) {
 		b.StopTimer()
 		for j := 0; j < size; j++ {
 			value := maps.Value(&struct{}{})
-			m.Put(keys[j], value)
+			m.Set(keys[j], value)
 		}
 		b.StartTimer()
 

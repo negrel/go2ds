@@ -11,7 +11,7 @@ type Value = elements.Element
 type Map interface {
 	containers.Container
 
-	Put(Key, Value)
+	Set(Key, Value)
 	Get(Key) (Value, bool)
 	Delete(Key)
 	Keys() []Key

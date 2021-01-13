@@ -24,7 +24,7 @@ func newMap() *Map {
 }
 
 // Put insert the given value in the map.
-func (m *Map) Put(key maps.Key, value maps.Value) {
+func (m *Map) Set(key maps.Key, value maps.Value) {
 	m.m[key] = value
 }
 

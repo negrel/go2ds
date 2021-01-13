@@ -18,7 +18,7 @@ func benchmarkMap_Put(b *testing.B, size int) {
 			key := maps.Key(&keys[j])
 			value := maps.Value(&struct{}{})
 
-			m.Put(key, value)
+			m.Set(key, value)
 		}
 		b.StopTimer()
 		m.Clear()
@@ -37,7 +37,7 @@ func benchmarkMap_Get(b *testing.B, size int) {
 
 		keys[i] = key
 
-		m.Put(key, value)
+		m.Set(key, value)
 	}
 
 	b.ResetTimer()
@@ -63,7 +63,7 @@ func benchmarkMap_Delete(b *testing.B, size int) {
 
 			keys[j] = key
 
-			m.Put(key, value)
+			m.Set(key, value)
 		}
 
 		b.StartTimer()
