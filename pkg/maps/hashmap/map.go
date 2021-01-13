@@ -45,7 +45,7 @@ func (m *Map) Delete(key maps.Key) {
 func (m *Map) Keys() []maps.Key {
 	keys := make([]maps.Key, len(m.m))
 	i := 0
-	for key, _ := range m.m {
+	for key := range m.m {
 		keys[i] = key
 		i++
 	}
