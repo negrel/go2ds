@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestMap_Put(t *testing.T) {
+func TestMap_Set(t *testing.T) {
 	m := newMap()
 
 	key := 165
@@ -85,6 +85,42 @@ func TestMap_Keys(t *testing.T) {
 		_, ok := keySet[key]
 		assert.True(t, ok)
 	}
+}
+
+func TestMap_Values(t *testing.T) {
+	m := New()
+	const keyCount = 10
+	values := make(map[int]struct{}, keyCount)
+
+	for i := 0; i < keyCount; i++ {
+		key := i
+		value := i * 2
+		m.Set(maps.Key(&key), maps.Value(&value))
+		values[value] = struct{}{}
+	}
+
+	assert.Equal(t, keyCount, len(m.Values()))
+
+	for _, value := range m.Values() {
+		_, ok := values[*(*int)(value)]
+		assert.True(t, ok)
+
+		if ok {
+			delete(values, *(*int)(value))
+		}
+	}
+}
+
+func TestMap_Empty(t *testing.T) {
+	m := New()
+
+	assert.True(t, m.Empty())
+
+	m.Set(nil, nil)
+	assert.False(t, m.Empty())
+
+	m.Delete(nil)
+	assert.True(t, m.Empty())
 }
 
 func TestMap_Size(t *testing.T) {
