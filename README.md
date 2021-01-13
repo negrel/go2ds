@@ -1,3 +1,5 @@
+[![Go Reference](https://pkg.go.dev/badge/github.com/negrel/guds.svg)](https://pkg.go.dev/github.com/negrel/guds)
+
 # :zap: GUDS
 
 ## Benchmarks
