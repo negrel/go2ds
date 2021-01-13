@@ -9,7 +9,7 @@
 ### Maps (built-in, Map & CMap)
 
 ```shell
-go test -bench . -run Put -benchmem -benchtime 1s ./...                                                                                                                                                                       [10:44:30]
+go test -bench . -run Put -benchmem -benchtime 1s ./...
 goos: linux
 goarch: amd64
 pkg: github.com/negrel/guds/pkg/maps/hashmap
