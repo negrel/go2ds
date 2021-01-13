@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func benchmarkPut(b *testing.B, size int) {
+func benchmarkMap_Put(b *testing.B, size int) {
 	m := New()
 	keys := make([]int, size)
 	for j := 0; j < size; j++ {
@@ -20,10 +20,13 @@ func benchmarkPut(b *testing.B, size int) {
 
 			m.Put(key, value)
 		}
+		b.StopTimer()
+		m.Clear()
+		b.StartTimer()
 	}
 }
 
-func benchmarkGet(b *testing.B, size int) {
+func benchmarkMap_Get(b *testing.B, size int) {
 	m := New()
 	keys := make([]maps.Key, size)
 
@@ -45,7 +48,7 @@ func benchmarkGet(b *testing.B, size int) {
 	}
 }
 
-func benchmarkDelete(b *testing.B, size int) {
+func benchmarkMap_Delete(b *testing.B, size int) {
 	m := New()
 	keys := make([]maps.Key, size)
 
@@ -71,49 +74,49 @@ func benchmarkDelete(b *testing.B, size int) {
 }
 
 func BenchmarkMap_Put_100(b *testing.B) {
-	benchmarkPut(b, 100)
+	benchmarkMap_Put(b, 100)
 }
 
 func BenchmarkMap_Put_1000(b *testing.B) {
-	benchmarkPut(b, 1000)
+	benchmarkMap_Put(b, 1000)
 }
 
 func BenchmarkMap_Put_10000(b *testing.B) {
-	benchmarkPut(b, 10000)
+	benchmarkMap_Put(b, 10000)
 }
 
 func BenchmarkMap_Put_100000(b *testing.B) {
-	benchmarkPut(b, 100000)
+	benchmarkMap_Put(b, 100000)
 }
 
 func BenchmarkMap_Get_100(b *testing.B) {
-	benchmarkGet(b, 100)
+	benchmarkMap_Get(b, 100)
 }
 
 func BenchmarkMap_Get_1000(b *testing.B) {
-	benchmarkGet(b, 1000)
+	benchmarkMap_Get(b, 1000)
 }
 
 func BenchmarkMap_Get_10000(b *testing.B) {
-	benchmarkGet(b, 10000)
+	benchmarkMap_Get(b, 10000)
 }
 
 func BenchmarkMap_Get_100000(b *testing.B) {
-	benchmarkGet(b, 100000)
+	benchmarkMap_Get(b, 100000)
 }
 
 func BenchmarkMap_Delete_100(b *testing.B) {
-	benchmarkDelete(b, 100)
+	benchmarkMap_Delete(b, 100)
 }
 
 func BenchmarkMap_Delete_1000(b *testing.B) {
-	benchmarkDelete(b, 1000)
+	benchmarkMap_Delete(b, 1000)
 }
 
 func BenchmarkMap_Delete_10000(b *testing.B) {
-	benchmarkDelete(b, 10000)
+	benchmarkMap_Delete(b, 10000)
 }
 
 func BenchmarkMap_Delete_100000(b *testing.B) {
-	benchmarkDelete(b, 100000)
+	benchmarkMap_Delete(b, 100000)
 }

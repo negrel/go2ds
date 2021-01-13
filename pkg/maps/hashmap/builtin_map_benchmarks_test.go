@@ -12,6 +12,9 @@ func benchmarkBuiltInPut(b *testing.B, size int) {
 		for j := 0; j < size; j++ {
 			m[j] = struct{}{}
 		}
+		b.StopTimer()
+		m = make(map[int]struct{})
+		b.StartTimer()
 	}
 }
 
