@@ -51,7 +51,7 @@ func TestMap_Delete(t *testing.T) {
 	m.Delete(maps.Key(&key))
 	actual, ok := m.Get(maps.Key(&key))
 	assert.False(t, ok)
-	assert.Equal(t, nil, actual)
+	assert.Equal(t, maps.Value(nil), actual)
 }
 
 func TestMap_Keys(t *testing.T) {
