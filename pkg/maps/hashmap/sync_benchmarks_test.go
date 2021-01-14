@@ -7,7 +7,7 @@ import (
 )
 
 func benchmarkCMapPut(b *testing.B, size int) {
-	m := NewC()
+	m := NewSync()
 	keys := make([]int, size)
 	for j := 0; j < size; j++ {
 		keys[j] = j
@@ -37,7 +37,7 @@ func benchmarkCMapPut(b *testing.B, size int) {
 }
 
 func benchmarkCMapGet(b *testing.B, size int) {
-	m := NewC()
+	m := NewSync()
 	keys := make([]maps.Key, size)
 
 	for i := 0; i < size; i++ {
@@ -67,7 +67,7 @@ func benchmarkCMapGet(b *testing.B, size int) {
 }
 
 func benchmarkCMapDelete(b *testing.B, size int) {
-	m := NewC()
+	m := NewSync()
 	keys := make([]maps.Key, size)
 
 	for j := 0; j < size; j++ {
