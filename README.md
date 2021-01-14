@@ -6,7 +6,7 @@
 
 ## Benchmarks
 
-### Maps (built-in, Map & CMap)
+### Maps (built-in, sync.Map, Map & Sync)
 
 ```shell
 go test -bench . -run NO_TEST -benchmem -benchtime 1s ./...
@@ -25,18 +25,18 @@ BenchmarkBuiltInMap_Delete_100-8      	  624742	      1821 ns/op	       0 B/op	 
 BenchmarkBuiltInMap_Delete_1000-8     	   41936	     30271 ns/op	       0 B/op	       0 allocs/op
 BenchmarkBuiltInMap_Delete_10000-8    	    3465	    312383 ns/op	       0 B/op	       0 allocs/op
 BenchmarkBuiltInMap_Delete_100000-8   	     306	   3877898 ns/op	       0 B/op	       0 allocs/op
-BenchmarkCMap_Put_100-8               	   15492	     78019 ns/op	    5390 B/op	       9 allocs/op
-BenchmarkCMap_Put_1000-8              	    1766	    676897 ns/op	   85845 B/op	      38 allocs/op
-BenchmarkCMap_Put_10000-8             	     164	   6884391 ns/op	  693847 B/op	     398 allocs/op
-BenchmarkCMap_Put_100000-8            	      13	  84206797 ns/op	 6641609 B/op	   11067 allocs/op
-BenchmarkCMap_Get_100-8               	   37569	     31951 ns/op	       0 B/op	       0 allocs/op
-BenchmarkCMap_Get_1000-8              	    3573	    318496 ns/op	       0 B/op	       0 allocs/op
-BenchmarkCMap_Get_10000-8             	     378	   3176270 ns/op	       0 B/op	       0 allocs/op
-BenchmarkCMap_Get_100000-8            	      36	  34339466 ns/op	       0 B/op	       0 allocs/op
-BenchmarkCMap_Delete_100-8            	   12807	     98609 ns/op	       0 B/op	       0 allocs/op
-BenchmarkCMap_Delete_1000-8           	    1438	    841091 ns/op	      31 B/op	       0 allocs/op
-BenchmarkCMap_Delete_10000-8          	     235	   4860092 ns/op	     679 B/op	       7 allocs/op
-BenchmarkCMap_Delete_100000-8         	      19	  54757886 ns/op	   14617 B/op	     152 allocs/op
+BenchmarkSync_Put_100-8               	   15492	     78019 ns/op	    5390 B/op	       9 allocs/op
+BenchmarkSync_Put_1000-8              	    1766	    676897 ns/op	   85845 B/op	      38 allocs/op
+BenchmarkSync_Put_10000-8             	     164	   6884391 ns/op	  693847 B/op	     398 allocs/op
+BenchmarkSync_Put_100000-8            	      13	  84206797 ns/op	 6641609 B/op	   11067 allocs/op
+BenchmarkSync_Get_100-8               	   37569	     31951 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSync_Get_1000-8              	    3573	    318496 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSync_Get_10000-8             	     378	   3176270 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSync_Get_100000-8            	      36	  34339466 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSync_Delete_100-8            	   12807	     98609 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSync_Delete_1000-8           	    1438	    841091 ns/op	      31 B/op	       0 allocs/op
+BenchmarkSync_Delete_10000-8          	     235	   4860092 ns/op	     679 B/op	       7 allocs/op
+BenchmarkSync_Delete_100000-8         	      19	  54757886 ns/op	   14617 B/op	     152 allocs/op
 BenchmarkMap_Set_100-8                	   93834	     11982 ns/op	    5376 B/op	       9 allocs/op
 BenchmarkMap_Set_1000-8               	    9820	    134850 ns/op	   85457 B/op	      34 allocs/op
 BenchmarkMap_Set_10000-8              	    1093	   1088751 ns/op	  676187 B/op	     214 allocs/op

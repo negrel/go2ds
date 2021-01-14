@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func benchmarkCMapPut(b *testing.B, size int) {
+func benchmarkSyncPut(b *testing.B, size int) {
 	m := NewSync()
 	keys := make([]int, size)
 	for j := 0; j < size; j++ {
@@ -36,7 +36,7 @@ func benchmarkCMapPut(b *testing.B, size int) {
 	}
 }
 
-func benchmarkCMapGet(b *testing.B, size int) {
+func benchmarkSyncGet(b *testing.B, size int) {
 	m := NewSync()
 	keys := make([]maps.Key, size)
 
@@ -66,7 +66,7 @@ func benchmarkCMapGet(b *testing.B, size int) {
 	wg.Wait()
 }
 
-func benchmarkCMapDelete(b *testing.B, size int) {
+func benchmarkSyncDelete(b *testing.B, size int) {
 	m := NewSync()
 	keys := make([]maps.Key, size)
 
@@ -97,50 +97,50 @@ func benchmarkCMapDelete(b *testing.B, size int) {
 	}
 }
 
-func BenchmarkCMap_Put_100(b *testing.B) {
-	benchmarkCMapPut(b, 100)
+func BenchmarkSync_Put_100(b *testing.B) {
+	benchmarkSyncPut(b, 100)
 }
 
-func BenchmarkCMap_Put_1000(b *testing.B) {
-	benchmarkCMapPut(b, 1000)
+func BenchmarkSync_Put_1000(b *testing.B) {
+	benchmarkSyncPut(b, 1000)
 }
 
-func BenchmarkCMap_Put_10000(b *testing.B) {
-	benchmarkCMapPut(b, 10000)
+func BenchmarkSync_Put_10000(b *testing.B) {
+	benchmarkSyncPut(b, 10000)
 }
 
-func BenchmarkCMap_Put_100000(b *testing.B) {
-	benchmarkCMapPut(b, 100000)
+func BenchmarkSync_Put_100000(b *testing.B) {
+	benchmarkSyncPut(b, 100000)
 }
 
-func BenchmarkCMap_Get_100(b *testing.B) {
-	benchmarkCMapGet(b, 100)
+func BenchmarkSync_Get_100(b *testing.B) {
+	benchmarkSyncGet(b, 100)
 }
 
-func BenchmarkCMap_Get_1000(b *testing.B) {
-	benchmarkCMapGet(b, 1000)
+func BenchmarkSync_Get_1000(b *testing.B) {
+	benchmarkSyncGet(b, 1000)
 }
 
-func BenchmarkCMap_Get_10000(b *testing.B) {
-	benchmarkCMapGet(b, 10000)
+func BenchmarkSync_Get_10000(b *testing.B) {
+	benchmarkSyncGet(b, 10000)
 }
 
-func BenchmarkCMap_Get_100000(b *testing.B) {
-	benchmarkCMapGet(b, 100000)
+func BenchmarkSync_Get_100000(b *testing.B) {
+	benchmarkSyncGet(b, 100000)
 }
 
-func BenchmarkCMap_Delete_100(b *testing.B) {
-	benchmarkCMapDelete(b, 100)
+func BenchmarkSync_Delete_100(b *testing.B) {
+	benchmarkSyncDelete(b, 100)
 }
 
-func BenchmarkCMap_Delete_1000(b *testing.B) {
-	benchmarkCMapDelete(b, 1000)
+func BenchmarkSync_Delete_1000(b *testing.B) {
+	benchmarkSyncDelete(b, 1000)
 }
 
-func BenchmarkCMap_Delete_10000(b *testing.B) {
-	benchmarkCMapDelete(b, 10000)
+func BenchmarkSync_Delete_10000(b *testing.B) {
+	benchmarkSyncDelete(b, 10000)
 }
 
-func BenchmarkCMap_Delete_100000(b *testing.B) {
-	benchmarkCMapDelete(b, 100000)
+func BenchmarkSync_Delete_100000(b *testing.B) {
+	benchmarkSyncDelete(b, 100000)
 }
