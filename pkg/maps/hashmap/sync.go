@@ -14,10 +14,10 @@ type Sync struct {
 
 // NewSync instantiate a Sync
 func NewSync() maps.Map {
-	return newSync()
+	return newCMap()
 }
 
-func newSync() *Sync {
+func newCMap() *Sync {
 	return &Sync{
 		RWMutex: sync.RWMutex{},
 		Map:     newMap(),
