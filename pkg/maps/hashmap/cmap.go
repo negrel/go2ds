@@ -8,7 +8,7 @@ import (
 
 // CMap is a thread-safe wrapper around Map.
 type CMap struct {
-	sync.Mutex
+	sync.RWMutex
 	*Map
 }
 
@@ -19,8 +19,8 @@ func NewC() maps.Map {
 
 func newCMap() *CMap {
 	return &CMap{
-		Mutex: sync.Mutex{},
-		Map:   newMap(),
+		RWMutex: sync.RWMutex{},
+		Map:     newMap(),
 	}
 }
 
@@ -35,8 +35,8 @@ func (cm *CMap) Set(key maps.Key, value maps.Value) {
 // A nil value and false is returned if the map doesn't contain any value
 // stored with the given key.
 func (cm *CMap) Get(key maps.Key) (maps.Value, bool) {
-	cm.Lock()
-	defer cm.Unlock()
+	cm.RLock()
+	defer cm.RUnlock()
 	return cm.Map.Get(key)
 }
 
@@ -49,22 +49,20 @@ func (cm *CMap) Delete(key maps.Key) {
 
 // Keys return all the keys present in the map.
 func (cm *CMap) Keys() []maps.Key {
-	cm.Lock()
-	defer cm.Unlock()
+	cm.RLock()
+	defer cm.RUnlock()
 	return cm.Map.Keys()
 }
 
 // Empty return if the map is empty.
 func (cm *CMap) Empty() bool {
-	cm.Lock()
-	defer cm.Unlock()
-	return cm.Map.Empty()
+	return cm.Size() == 0
 }
 
 // Size return the number of elements stored in the map.
 func (cm *CMap) Size() int {
-	cm.Lock()
-	defer cm.Unlock()
+	cm.RLock()
+	defer cm.RUnlock()
 	return cm.Map.Size()
 }
 
@@ -77,7 +75,7 @@ func (cm *CMap) Clear() {
 
 // Values return all the values stored in the map.
 func (cm *CMap) Values() []elements.Element {
-	cm.Lock()
-	defer cm.Unlock()
+	cm.RLock()
+	defer cm.RUnlock()
 	return cm.Map.Values()
 }
